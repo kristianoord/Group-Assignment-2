@@ -54,16 +54,12 @@ def relative_pose(
     """
     """Relative pose increment from one wheel-encoder reading."""
 
-    # Velocity at the vehicle centerline
     v_b = vel_encoder / (1 - (car.H / car.L) * np.tan(steer))
 
-    # Angular velocity
     omega = (v_b / car.L) * np.tan(steer)
 
-    # Body twist [forward velocity, lateral velocity, angular velocity]
     xi = np.array([v_b, 0.0, omega])
 
-    # Integrate the twist over dt
     delta_pose = gtsam.Pose2.Expmap(xi * dt)
 
     return delta_pose
@@ -94,8 +90,25 @@ def preintegrate(
     np.ndarray, shape=(3, 3)
         Its covariance.
     """
-    # TODO(b): compound the increments and propagate the covariance.
-    raise NotImplementedError("Task 1 (b)")
+    
+    accumulated_pose = gtsam.Pose2()
+    accumulated_cov = np.zeros((3, 3))
+
+    for pose, cov in zip(poses, covariances):
+        H1 = np.zeros((3, 3), order="F")
+        H2 = np.zeros((3, 3), order="F")
+
+        new_pose = accumulated_pose.compose(pose, H1, H2)
+
+        accumulated_cov = (
+            H1 @ accumulated_cov @ H1.T
+            + H2 @ cov @ H2.T
+        )
+
+        accumulated_pose = new_pose
+
+    return accumulated_pose, accumulated_cov
+
 
 
 # ---------------------------------------------------------------------------

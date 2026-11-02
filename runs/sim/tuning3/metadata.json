@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-11-02T12:57:24",
+  "dataset": "sim",
+  "num_poses": 999,
+  "num_landmarks": 57,
+  "run_time_s": 13.20601079997141,
+  "summary": {
+    "rmse_x_m": 1.4729576445977848,
+    "rmse_y_m": 1.6408114670897935,
+    "rmse_yaw_deg": 2.053048775506543,
+    "pose_anees": 8.518323874220728,
+    "pose_anees_interval": [
+      2.8500108798157395,
+      3.1537813423433265
+    ],
+    "landmark_anis_per_dof": 0.38956914881862487,
+    "landmark_anis_interval": [
+      0.9762567160636342,
+      1.0240245856372572
+    ],
+    "gnss_anis": null,
+    "gnss_anis_interval": null,
+    "sigma_gnss_m": null,
+    "gnss_rms_distance_m": null,
+    "map_quality": {
+      "observed": 78,
+      "found": 24,
+      "duplicates": 1,
+      "spurious": 32,
+      "rms_error_m": 1.9106291388343897
+    },
+    "robust_kernel": null
+  }
+}

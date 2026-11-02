@@ -2,6 +2,24 @@
 
 conda activate ttk4250_ga2
 python -m graphslam.run_sim
+python -m graphslam.run_sim --config configs/sim_default 1.yaml --output-dir runs/sim/tuning1
+python -m graphslam.run_real --config configs/real_default_2.yaml --output-dir runs/real/tuning2
+
+Sim:
+Tuning 1:
+Reducing assumed odometry noise
+Tuning 2:
+Increase assumed measurement noise
+Tuning 3:
+Make landmark confirmation stricter
+
+Real:
+Tuning 1:
+Reducing assumed odometry noise
+Tuning 2:
+Reduce assumed measurement noise
+Tuning 3:
+Make landmark confirmation stricter
 
 Landmark SLAM on a factor graph, solved with GTSAM's iSAM2 back-end and a JCBB
 front-end, on two datasets: a simulated one with ground truth, and the Victoria

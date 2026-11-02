@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-11-02T14:14:09",
+  "dataset": "victoria_park",
+  "num_poses": 7247,
+  "num_landmarks": 244,
+  "run_time_s": 188.98069420002867,
+  "summary": {
+    "rmse_x_m": null,
+    "rmse_y_m": null,
+    "rmse_yaw_deg": null,
+    "pose_anees": null,
+    "pose_anees_interval": null,
+    "landmark_anis_per_dof": 0.22713599803687784,
+    "landmark_anis_interval": [
+      0.9592904567905084,
+      1.0415436453221405
+    ],
+    "gnss_anis": 2.755123641012,
+    "gnss_anis_interval": [
+      1.9415078476406444,
+      2.059348128457626
+    ],
+    "sigma_gnss_m": 1.0,
+    "gnss_rms_distance_m": 1.8398640690829104,
+    "map_quality": null,
+    "robust_kernel": null
+  }
+}
