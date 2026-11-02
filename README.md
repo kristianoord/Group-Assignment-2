@@ -1,5 +1,8 @@
 # TTK4250 Group Assignment 2 — Factor graph SLAM
 
+conda activate ttk4250_ga2
+python -m graphslam.run_sim
+
 Landmark SLAM on a factor graph, solved with GTSAM's iSAM2 back-end and a JCBB
 front-end, on two datasets: a simulated one with ground truth, and the Victoria
 Park lidar dataset.
