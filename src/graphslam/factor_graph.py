@@ -128,20 +128,11 @@ def add_landmark_factor(
         From :func:`bearing_range_noise_model`, ordered [bearing, range].
     """
     
-    r, bearing = measurement
-
-    bearing_rot = gtsam.Rot2(bearing)
-
-    factor = gtsam.BearingRangeFactor2D(
-        pose_key,
-        landmark_key,
-        bearing_rot,
-        float(r),
-        noise_model
-    )
-    graph.add(factor)
-
-
+    bearing = measurement[1]
+    range = measurement[0]
+    bearing_rot2 = gtsam.Rot2(bearing)
+    landmark_factor = gtsam.BearingRangeFactor2D(pose_key, landmark_key, bearing_rot2, float(range), noise_model)
+    graph.add(landmark_factor)
 
 # ---------------------------------------------------------------------------
 # Task 1 (d): the measurement model and its Jacobians
